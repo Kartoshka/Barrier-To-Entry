@@ -29,6 +29,6 @@ public class CharacterMover : MonoBehaviour {
 	void Update()
 	{
 		this.transform.position += new Vector3 (m_move_h, m_move_v, 0).normalized * moveSpeed * Time.deltaTime;
-		this.transform.forward = new Vector3 (m_look_h, m_look_v, 0);
+		this.transform.rotation = Quaternion.LookRotation (Vector3.up, new Vector3 (m_look_h, m_look_v, 0));
 	}
 }
