@@ -134,9 +134,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1212692820998188}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.1523997, z: -0.12921125}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4178152443468818}
   m_Father: {fileID: 4478368477292004}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -146,11 +147,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1811239229316884}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.982, y: 0.601, z: 2.767}
-  m_LocalScale: {x: 0.24644947, y: 0.24644946, z: 0.24644946}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.56, z: 5.82}
+  m_LocalScale: {x: 0.42946118, y: 0.42946118, z: 0.42946118}
   m_Children: []
-  m_Father: {fileID: 4776523708449392}
+  m_Father: {fileID: 4140335045684946}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4221727182131098
@@ -174,7 +175,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1223392827636588}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.7105817, z: -1.3649979}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4478368477292004}
@@ -187,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1478269969380616}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.98, y: -0.7, z: 0.27696}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.57385737, y: 0.57385737, z: 0.57385737}
   m_Children:
   - {fileID: 4417580127227540}
@@ -204,8 +205,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4178152443468818}
+  m_Children: []
   m_Father: {fileID: 4972523552785622}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charCont: {fileID: 0}
-  rotationObj: {fileID: 0}
+  rotationObj: {fileID: 1259830280013936}
   moveSpeed: 10
   accelerationRatio: 1
   rotationSpeed: 1
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3127ded54b84f06bde5d040bcd76d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 2
+  playerNumber: 1
   m_weapon: {fileID: 114486207140891378}
 --- !u!135 &135560701093107284
 SphereCollider:
