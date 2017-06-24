@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour {
 		if ((Time.time - birthTime) < duration)
 		{
 			this.transform.position += speed * direction * Time.deltaTime;
-			this.transform.rotation = Quaternion.LookRotation (direction, new Vector3 (0, 0, 1));
+			this.transform.rotation = Quaternion.LookRotation (direction, new Vector3 (0, 1, 0));
 		} else
 		{
 			Destroy (this.gameObject);

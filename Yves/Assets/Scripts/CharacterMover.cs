@@ -33,7 +33,7 @@ public class CharacterMover : MonoBehaviour {
 
 	void Update()
 	{
-		this.transform.position += new Vector3 (m_move_h, m_move_v, 0).normalized * moveSpeed * Time.deltaTime;
-		this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation (new Vector3 (m_look_h, m_look_v, 0),new Vector3(0,0,1)) , rotationSpeed);
+		this.transform.position += new Vector3 (m_move_h, 0, m_move_v) * moveSpeed * Time.deltaTime;
+		this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation (new Vector3 (m_look_h, 0, m_look_v),new Vector3(0,1,0)) , rotationSpeed);
 	}
 }
