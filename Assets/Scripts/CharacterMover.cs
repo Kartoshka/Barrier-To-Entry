@@ -25,7 +25,12 @@ public class CharacterMover : MonoBehaviour {
 	[Range(0.01f,1f)]
 	public float rotationSpeed = 1f;
 
-	public void SetMoveInput(float h_input, float v_input)
+    private void Start()
+    {
+        charCont = GetComponentInParent<CharacterController>();
+    }
+
+    public void SetMoveInput(float h_input, float v_input)
 	{
 		m_move_v = v_input;
 		m_move_h = h_input;
