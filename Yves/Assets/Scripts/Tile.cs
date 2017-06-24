@@ -4,13 +4,31 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour {
 
-	// Use this for initialization
+    private Level m_Level;
+    private STATE m_State;
+
+    enum STATE
+    {
+        NONE,
+        LOCKED
+    }
+
 	void Start () {
-		
+        
+        // Get level instance
+        m_Level = transform.parent.GetComponent<Level>();
+
+
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    STATE GetState() { return m_State; }
+
+    void onLock()
+    {
+        m_State = STATE.LOCKED;
+    }
 }
