@@ -45,15 +45,12 @@ public class Bullet : MonoBehaviour {
         if (tag == source.tag)
             return;
 
-        Player player = other.GetComponent<Player>();
-        if (player && tag == player.m_Blocker.tag)
-            return;
-
 		if (tag == "Player1" || tag == "Player2")
 		{
 			OnHitPlayerEffect (other.gameObject);
 		}
-        else if(tag == "Player1Blocker" || tag == "Player2Blocker")
+
+        if(tag == source.GetComponent<Player>().m_Blocker.tag)
         {
             Destroy(this.gameObject);
         }
