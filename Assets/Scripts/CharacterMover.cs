@@ -15,6 +15,9 @@ public class CharacterMover : MonoBehaviour {
 
 	private Vector3 lookDirection;
 
+	//Hack
+	public CharacterController charCont;
+
 	public float moveSpeed;
 	[Range(0.01f,1f)]
 	public float accelerationRatio = 1.0f;
@@ -37,8 +40,12 @@ public class CharacterMover : MonoBehaviour {
 
 	void Update()
 	{
-		currentVelocity = Vector3.Lerp (currentVelocity, desiredVelocity, accelerationRatio);
-		this.transform.position += currentVelocity * moveSpeed * Time.deltaTime;
+		currentVelocity = Vector3.Lerp (currentVelocity, desiredVelocity*moveSpeed, accelerationRatio) + Vector3.down*100;
+//		this.transform.position += currentVelocity * moveSpeed * Time.deltaTime;
+		if (charCont!=null)
+		{
+			charCont.SimpleMove (currentVelocity);
+		}
 		//this.transform.position += new Vector3 (m_move_h, 0, m_move_v) * moveSpeed * Time.deltaTime;
 		this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation (new Vector3 (m_look_h, 0, m_look_v),new Vector3(0,1,0)) , rotationSpeed);
 	}
