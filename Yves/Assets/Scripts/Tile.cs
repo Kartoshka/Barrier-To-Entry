@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour {
 
-    private Level m_Level;
-    private STATE m_State;
+    public Level m_Level;
+    public STATE m_State;
+    public List<Tile> m_NeighborList;
 
     public enum STATE
     {
@@ -24,8 +25,6 @@ public class Tile : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    public STATE GetState() { return m_State; }
 
     public void onLock()
     {
