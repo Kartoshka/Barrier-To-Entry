@@ -11,6 +11,7 @@ public class PlayerInputManager : MonoBehaviour {
 	private CharacterMover m_charMover;
 	public WeaponController m_weapon;
 
+	private string platform;
 
 	static string MOVE_HORIZONTAL_AXIS = "HorizontalLeft";
 	static string MOVE_VERTICAL_AXIS = "VerticalLeft";
@@ -23,6 +24,13 @@ public class PlayerInputManager : MonoBehaviour {
 
 	void Start()
 	{
+		if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+		{
+			platform = "Windows";
+		} else if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.OSXPlayer)
+		{
+			platform = "OSX";
+		}
 		m_charMover = this.GetComponent<CharacterMover> ();
 	}
 
@@ -55,10 +63,10 @@ public class PlayerInputManager : MonoBehaviour {
 	{
 		if (playerNumber == 1)
 		{
-			return input += "1";
+			return platform + input + "1";
 		} else if (playerNumber == 2)
 		{
-			return input += "2";
+			return platform + input + "2";
 		}
 
 		return input;
