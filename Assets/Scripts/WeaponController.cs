@@ -34,23 +34,21 @@ public class WeaponController : MonoBehaviour {
 		if ((Time.time - lastShot) > unloadSpeed)
 		{
 			lastShot = Time.time;
-			GameObject spawnedBullet = Instantiate (bulletPrefab.gameObject, this.gameObject.transform.position + this.transform.forward * shootFromDistance, this.transform.rotation);
+			GameObject spawnedBullet = Instantiate (bulletPrefab.gameObject, MuzzleTip.gameObject.transform.position + MuzzleTip.transform.forward * shootFromDistance, MuzzleTip.transform.rotation);
 			Bullet b = spawnedBullet.GetComponent<Bullet> ();
-			b.SetDirection (this.transform.forward);
+			b.SetDirection (MuzzleTip.transform.forward);
 			b.SetSource (this.gameObject);
 
 			// Raycast to find the tile infront of the player
 			RaycastHit hit;
 
 			Vector3 direction = Quaternion.Euler(35, 0, 0) * transform.forward;
-			Debug.DrawRay(transform.position, direction, Color.blue, 3.0f);
 			if (Physics.Raycast(MuzzleTip.transform.position, -transform.up, out hit, 100.0f))
 			{
 				Tile frontTile = hit.collider.gameObject.GetComponent<Tile>();
 
 				if(frontTile == null)
 				{
-					Debug.Log("Couldnt't find front tile!");
 					return;
 				}
 				else
