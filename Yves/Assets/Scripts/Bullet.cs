@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour {
 	public float duration;
 	public float speed;
 
+	private Vector3 m_initialVelocity;
 	private Vector3 direction;
 
 	// Use this for initialization
@@ -19,7 +20,7 @@ public class Bullet : MonoBehaviour {
 	void Update () {
 		if ((Time.time - birthTime) < duration)
 		{
-			this.transform.position += speed * direction * Time.deltaTime;
+			this.transform.position += ((speed * direction)) * Time.deltaTime;
 			this.transform.rotation = Quaternion.LookRotation (direction, new Vector3 (0, 1, 0));
 		} else
 		{
@@ -27,8 +28,9 @@ public class Bullet : MonoBehaviour {
 		}
 	}
 
-	public void SetValues(Vector3 dir)
+	public void SetValues(Vector3 dir, Vector3 initialVelocity)
 	{
 		direction = dir;
+		m_initialVelocity = initialVelocity;
 	}
 }
