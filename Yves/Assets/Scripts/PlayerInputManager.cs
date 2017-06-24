@@ -22,6 +22,7 @@ public class PlayerInputManager : MonoBehaviour {
 	static string FIRE ="Fire";
 	static string SPECIAL;
 
+	private bool m_hasFired =false;
 	void Start()
 	{
 		if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
@@ -49,14 +50,14 @@ public class PlayerInputManager : MonoBehaviour {
 			m_charMover.SetLookInput (look_h_input, look_v_input);
 		}
 
-		if (Input.GetButtonDown (getPlayerInputString (FIRE)))
+		Debug.Log (Input.GetAxisRaw (getPlayerInputString (FIRE)));
+		if (Input.GetAxisRaw (getPlayerInputString (FIRE)) == 1)
 		{
-			if (m_weapon != null)
+			if (m_weapon != null )
 			{
 				m_weapon.Fire ();
 			}
-		}
-
+		} 
 	}
 
 	private string getPlayerInputString(string input)
