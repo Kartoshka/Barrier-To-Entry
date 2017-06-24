@@ -10,6 +10,8 @@ public class Level : MonoBehaviour {
     public Material m_HitMaterial;
     public Material m_PathMaterial;
 
+    public GameObject m_PilonPrefab;
+
 	// Use this for initialization
 	void Start () {
         LoadTileList();
@@ -29,6 +31,7 @@ public class Level : MonoBehaviour {
         foreach (Transform child in transform)
         {
             m_TileList.Add(child.GetComponent<Tile>());
+            GameObject pilon = Instantiate(m_PilonPrefab, child);
         }
 
         // Loop and set all materials and calculate tile neighbors
