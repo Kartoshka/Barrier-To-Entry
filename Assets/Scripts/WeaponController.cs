@@ -2,32 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class WeaponController : MonoBehaviour {
 
+	//InitializationInformation
 	public float shootFromDistance =0.0f;
+	public Bullet bulletPrefab;
+
+	//Timing
 	public float unloadSpeed = 0.0f;
 	private float lastShot = 0.0f;
-	float bulletSpeed;
 
     public GameObject MuzzleTip;
-
-	private Vector3 lastPosition;
-	private Vector3 moveVelocity;
-	public Bullet bulletPrefab;
 
 
 
 
 	// Use this for initialization
 	void Start () {
-		lastPosition = this.transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		moveVelocity = (this.transform.position - lastPosition)/Time.deltaTime;
-		lastPosition = this.transform.position;
-		Debug.Log (moveVelocity);
+
 	}
 
 
@@ -39,7 +36,8 @@ public class WeaponController : MonoBehaviour {
 			lastShot = Time.time;
 			GameObject spawnedBullet = Instantiate (bulletPrefab.gameObject, this.gameObject.transform.position + this.transform.forward * shootFromDistance, this.transform.rotation);
 			Bullet b = spawnedBullet.GetComponent<Bullet> ();
-			b.SetValues (this.transform.forward, moveVelocity);
+			b.SetDirection (this.transform.forward);
+			b.SetSource (this.gameObject);
 
 			// Raycast to find the tile infront of the player
 			RaycastHit hit;

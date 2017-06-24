@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 114640444436970676}
   - component: {fileID: 114740774710177286}
   - component: {fileID: 143476758307252482}
+  - component: {fileID: 65358054301020432}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -285,6 +286,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1937414212601188}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65358054301020432
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1784917436226920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114556684871632358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,11 +351,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e3476978dbc47fa9ddaf5d1954b0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootFromDistance: 0
-  unloadSpeed: 0
-  MuzzleTip: {fileID: 0}
+  shootFromDistance: 1
   bulletPrefab: {fileID: 114683273936913814, guid: fcc7db590d3104343bc136a2ae3bccb7,
     type: 2}
+  unloadSpeed: 0.2
+  MuzzleTip: {fileID: 0}
 --- !u!135 &135788232442706354
 SphereCollider:
   m_ObjectHideFlags: 1

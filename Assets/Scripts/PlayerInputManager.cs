@@ -50,7 +50,6 @@ public class PlayerInputManager : MonoBehaviour {
 			m_charMover.SetLookInput (look_h_input, look_v_input);
 		}
 
-		Debug.Log (Input.GetAxisRaw (getPlayerInputString (FIRE)));
 		if (Input.GetAxisRaw (getPlayerInputString (FIRE)) == 1)
 		{
 			if (m_weapon != null )

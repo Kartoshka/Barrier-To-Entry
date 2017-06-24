@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 114174315989258746}
   - component: {fileID: 114169396097370916}
   - component: {fileID: 143231792712844542}
+  - component: {fileID: 65766863094745282}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -286,6 +287,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1923756122211652}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65766863094745282
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1823859867394118}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114154781859904248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -298,10 +311,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootFromDistance: 1
-  unloadSpeed: 1
-  MuzzleTip: {fileID: 1720134509305238}
   bulletPrefab: {fileID: 114683273936913814, guid: fcc7db590d3104343bc136a2ae3bccb7,
     type: 2}
+  unloadSpeed: 0.2
+  MuzzleTip: {fileID: 1720134509305238}
 --- !u!114 &114169396097370916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -341,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charCont: {fileID: 143231792712844542}
-  moveSpeed: 1
+  moveSpeed: 10
   accelerationRatio: 1
   rotationSpeed: 1
 --- !u!135 &135301229413781756

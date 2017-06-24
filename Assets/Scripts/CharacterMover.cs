@@ -41,12 +41,14 @@ public class CharacterMover : MonoBehaviour {
 	void Update()
 	{
 		currentVelocity = Vector3.Lerp (currentVelocity, desiredVelocity*moveSpeed, accelerationRatio) + Vector3.down*100;
-//		this.transform.position += currentVelocity * moveSpeed * Time.deltaTime;
-		if (charCont!=null)
+		if (charCont != null)
 		{
 			charCont.SimpleMove (currentVelocity);
+		} else
+		{
+			this.transform.position += currentVelocity * moveSpeed * Time.deltaTime;
 		}
-		//this.transform.position += new Vector3 (m_move_h, 0, m_move_v) * moveSpeed * Time.deltaTime;
+
 		this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation (new Vector3 (m_look_h, 0, m_look_v),new Vector3(0,1,0)) , rotationSpeed);
 	}
 }

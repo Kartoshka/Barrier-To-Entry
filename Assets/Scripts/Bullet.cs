@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour {
 	private Vector3 m_initialVelocity;
 	private Vector3 direction;
 
+	private GameObject source;
 	// Use this for initialization
 	void Start () {
 		birthTime = Time.time;	
@@ -28,9 +29,26 @@ public class Bullet : MonoBehaviour {
 		}
 	}
 
-	public void SetValues(Vector3 dir, Vector3 initialVelocity)
+	public void SetDirection(Vector3 dir)
 	{
 		direction = dir;
-		m_initialVelocity = initialVelocity;
+	}
+
+	public void SetSource(GameObject s)
+	{
+		source = s;
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject != source)
+		{
+			OnHitPlayerEffect (other.gameObject);
+		}
+	}
+
+	protected virtual void OnHitPlayerEffect(GameObject opponent)
+	{
+		Destroy (opponent.gameObject);
 	}
 }
