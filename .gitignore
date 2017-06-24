@@ -1,23 +1,23 @@
 # =============== #
 # Unity generated #
 # =============== #
-Yves/Temp/
-Yves/Library/
+/Temp/
+/Library/
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
-Yves/ExportedObj/
-Yves/obj/
-Yves/*.svd
-Yves/*.userprefs
-Yves/*.csproj
-Yves/*.pidb
-Yves/*.suo
-Yves/*.sln
-Yves/*.user
-Yves/*.unityproj
-Yves/*.booproj
+/ExportedObj/
+/obj/
+/*.svd
+/*.userprefs
+/*.csproj
+/*.pidb
+/*.suo
+/*.sln
+/*.user
+/*.unityproj
+/*.booproj
 
 # ============ #
 # OS generated #
@@ -33,11 +33,11 @@ Thumbs.db
 # ================ #
 # Jarvis generated #
 # ================ #
-Yves/Art/Characters/dex_char_anims.ma
-Yves/Art/Characters/*/WIP/
-Yves/Art/Characters/[Rr]eferences/
-Yves/Art/Characters/.mayaSwatches/bird_wing_wip.ma.swatches
-Yves/Art/LevelDesign/
-Yves/Art/Poster/WIP/
-Yves/Assets/Models/Downloaded/
-Yves/Game_Data/
+/Art/Characters/dex_char_anims.ma
+/Art/Characters/*/WIP/
+/Art/Characters/[Rr]eferences/
+/Art/Characters/.mayaSwatches/bird_wing_wip.ma.swatches
+/Art/LevelDesign/
+/Art/Poster/WIP/
+/Assets/Models/Downloaded/
+/Game_Data/
