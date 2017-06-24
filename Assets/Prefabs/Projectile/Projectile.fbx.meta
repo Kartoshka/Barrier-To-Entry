@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d33a6f7b20dd549728823b1d5e24faf1
-timeCreated: 1498341286
+guid: 8cffcea22bbfc4888a17d1a9c70eefcd
+timeCreated: 1498346772
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,8 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pPlane3
-    9500000: //RootNode
+    4300000: Projectile
   materials:
     importMaterials: 1
     materialName: 0
@@ -75,7 +74,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
