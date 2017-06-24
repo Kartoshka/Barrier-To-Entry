@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 65135753749063730}
   m_Layer: 8
   m_Name: Player1Block
-  m_TagString: Untagged
+  m_TagString: Player1Blocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4090249547429212}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33517919284604646}
   - component: {fileID: 135788232442706354}
   - component: {fileID: 23219280340133474}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,9 +58,9 @@ GameObject:
   - component: {fileID: 114740774710177286}
   - component: {fileID: 143476758307252482}
   - component: {fileID: 65358054301020432}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player 2
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4114288510344098}
   - component: {fileID: 33456582011289880}
   - component: {fileID: 23028576369763284}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 33709834198561968}
   - component: {fileID: 136143592472975732}
   - component: {fileID: 23773701891643174}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,6 +340,7 @@ MonoBehaviour:
   m_PlayerMaterial: {fileID: 2100000, guid: 042258d7ada964e4f9d678658f3de5c3, type: 2}
   m_OtherPlayerMaterial: {fileID: 2100000, guid: 115cd22bdf746634ca7bea826132f312,
     type: 2}
+  m_Blocker: {fileID: 1914633574856116, guid: db4d12b584718e5419a72272b62e9c39, type: 2}
 --- !u!114 &114745393729581368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -355,7 +356,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114683273936913814, guid: fcc7db590d3104343bc136a2ae3bccb7,
     type: 2}
   unloadSpeed: 0.2
-  MuzzleTip: {fileID: 0}
+  MuzzleTip: {fileID: 1735950355720310}
 --- !u!135 &135788232442706354
 SphereCollider:
   m_ObjectHideFlags: 1

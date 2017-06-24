@@ -34,10 +34,17 @@ public class Tile : MonoBehaviour {
     {
     }
 
-    public void onLock(Material hitMaterial)
+    public void onLock(Player player)
     {
-        m_State = STATE.LOCKED;
+        StartCoroutine(SpawnWall(player));
+    }
 
-        transform.GetComponent<Renderer>().material = hitMaterial;
+    IEnumerator SpawnWall(Player player)
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        m_State = STATE.LOCKED;
+        transform.GetComponent<Renderer>().material = player.m_OtherPlayerMaterial;
+        Instantiate(player.m_Blocker, transform.position + new Vector3(0, 1.0f, 0), Quaternion.identity, transform);
     }
 }

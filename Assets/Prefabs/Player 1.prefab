@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4021156319728808}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33717171910315264}
   - component: {fileID: 135932209057857340}
   - component: {fileID: 23507209125128938}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,9 +58,9 @@ GameObject:
   - component: {fileID: 114169396097370916}
   - component: {fileID: 143231792712844542}
   - component: {fileID: 65766863094745282}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 33176324607932262}
   - component: {fileID: 136170380627163148}
   - component: {fileID: 23517938259979528}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,6 +329,7 @@ MonoBehaviour:
   m_PlayerMaterial: {fileID: 2100000, guid: 115cd22bdf746634ca7bea826132f312, type: 2}
   m_OtherPlayerMaterial: {fileID: 2100000, guid: 042258d7ada964e4f9d678658f3de5c3,
     type: 2}
+  m_Blocker: {fileID: 1658545243733742, guid: 6e460223c65efb64d8887e28b74142ee, type: 2}
 --- !u!114 &114174315989258746
 MonoBehaviour:
   m_ObjectHideFlags: 1

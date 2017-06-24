@@ -7,6 +7,8 @@ public class Player : MonoBehaviour {
     public Material m_PlayerMaterial;
     public Material m_OtherPlayerMaterial;
 
+    public GameObject m_Blocker;
+
 	// Use this for initialization
 	void Start () {
 		

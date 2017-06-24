@@ -41,13 +41,25 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject != source)
+        string tag = other.tag;
+        if (tag == source.tag)
+            return;
+
+        Player player = other.GetComponent<Player>();
+        if (player && tag == player.m_Blocker.tag)
+            return;
+
+		if (tag == "Player1" || tag == "Player2")
 		{
 			OnHitPlayerEffect (other.gameObject);
 		}
+        else if(tag == "Player1Blocker" || tag == "Player2Blocker")
+        {
+            Destroy(this.gameObject);
+        }
 	}
 
-	protected virtual void OnHitPlayerEffect(GameObject opponent)
+    protected virtual void OnHitPlayerEffect(GameObject opponent)
 	{
 		Destroy (opponent.gameObject);
 	}

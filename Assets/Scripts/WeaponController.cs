@@ -55,7 +55,7 @@ public class WeaponController : MonoBehaviour {
 				}
 				else
 				{
-					frontTile.onLock(transform.GetComponent<Player>().m_OtherPlayerMaterial);
+					frontTile.onLock(transform.GetComponent<Player>());
 				}
 
 
