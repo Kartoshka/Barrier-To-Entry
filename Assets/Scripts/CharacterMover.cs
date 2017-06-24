@@ -15,8 +15,9 @@ public class CharacterMover : MonoBehaviour {
 
 	private Vector3 lookDirection;
 
-	//Hack
 	public CharacterController charCont;
+	public GameObject rotationObj;
+
 
 	public float moveSpeed;
 	[Range(0.01f,1f)]
@@ -44,11 +45,19 @@ public class CharacterMover : MonoBehaviour {
 		if (charCont != null)
 		{
 			charCont.SimpleMove (currentVelocity);
+			//charCont.gameObject.transform.rotation = Quaternion.LookRotation (currentVelocity);
 		} else
 		{
 			this.transform.position += currentVelocity * moveSpeed * Time.deltaTime;
+			//this.transform.rotation = Quaternion.LookRotation (currentVelocity, new Vector3(0,0,-1));
 		}
-
-		this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation (new Vector3 (m_look_h, 0, m_look_v),new Vector3(0,1,0)) , rotationSpeed);
+			
+		if (rotationObj != null)
+		{
+			rotationObj.transform.rotation = Quaternion.Lerp (rotationObj.transform.rotation, Quaternion.LookRotation (new Vector3 (m_look_h, 0, m_look_v), new Vector3 (0, 1, 0)), rotationSpeed);
+		} else
+		{
+			charCont.gameObject.transform.rotation = Quaternion.Lerp(charCont.gameObject.transform.rotation, Quaternion.LookRotation (new Vector3 (m_look_h, 0, m_look_v),new Vector3(0,1,0)) , rotationSpeed);
+		}
 	}
 }
