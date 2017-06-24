@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class RoundManager : MonoBehaviour {
 
-    public List<MonoBehaviour> Player1Scripts;
-    public List<MonoBehaviour> Player2Scripts;
+    public GameObject Player1Logic;
+    public GameObject Player2Logic;
 
 	void Start () {
-		
+        StartCoroutine(StartRound());
 	}
 	
 	void Update () {
 		
 	}
+
+    IEnumerator StartRound()
+    {
+        Player1Logic.SetActive(false);
+        Player2Logic.SetActive(false);
+        yield return new WaitForSeconds(3.0f);
+
+        Player1Logic.SetActive(true);
+        Player2Logic.SetActive(true);
+    }
 }
