@@ -7,7 +7,7 @@ public class Tile : MonoBehaviour {
     private Level m_Level;
     private STATE m_State;
 
-    enum STATE
+    public enum STATE
     {
         NONE,
         LOCKED
@@ -25,10 +25,12 @@ public class Tile : MonoBehaviour {
 		
 	}
 
-    STATE GetState() { return m_State; }
+    public STATE GetState() { return m_State; }
 
-    void onLock()
+    public void onLock()
     {
         m_State = STATE.LOCKED;
+
+        transform.GetComponent<Renderer>().material = m_Level.m_HitMaterial;
     }
 }

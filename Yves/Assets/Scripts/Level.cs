@@ -6,6 +6,7 @@ public class Level : MonoBehaviour {
 
     public List<Tile> m_TileList;
     public Material m_LevelMaterial;
+    public Material m_HitMaterial;
 
 	// Use this for initialization
 	void Start () {

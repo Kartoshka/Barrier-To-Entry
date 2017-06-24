@@ -16053,6 +16053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TileList: []
   m_LevelMaterial: {fileID: 2100000, guid: 47faf329ed9fa004d883a2096b17b5c0, type: 2}
+  m_HitMaterial: {fileID: 0}
 --- !u!4 &1661012955
 Transform:
   m_ObjectHideFlags: 0
@@ -18500,7 +18501,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1861934028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.6, y: 5.7, z: 0}
+  m_LocalPosition: {x: 12.6, y: 1.04, z: 2.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 846881245}
@@ -21386,7 +21387,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2129947308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.3, y: 5.7, z: 0}
+  m_LocalPosition: {x: 8.3, y: 1.04, z: 2.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2142769053}
