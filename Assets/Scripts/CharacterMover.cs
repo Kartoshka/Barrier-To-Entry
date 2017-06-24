@@ -13,8 +13,6 @@ public class CharacterMover : MonoBehaviour {
 	private float m_look_v;
 	private float m_look_h;
 
-	private Vector3 lookDirection;
-
 	public CharacterController charCont;
 	public GameObject rotationObj;
 
