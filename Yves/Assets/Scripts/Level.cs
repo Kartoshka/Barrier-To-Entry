@@ -36,6 +36,8 @@ public class Level : MonoBehaviour {
         {
             tile.GetComponent<Renderer>().material = m_LevelMaterial;
 
+            
+            /*
             Collider[] neighbors = Physics.OverlapSphere(tile.transform.position, 1.0f);
             for (int i = 0; i < neighbors.Length; i++)
             {
@@ -46,6 +48,7 @@ public class Level : MonoBehaviour {
                     tile.m_NeighborList.Add(other);
                 }
             }
+            */
         }
     }
 

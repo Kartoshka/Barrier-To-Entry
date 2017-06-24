@@ -19,17 +19,25 @@ public class Tile : MonoBehaviour {
         // Get level instance
         m_Level = transform.parent.GetComponent<Level>();
 
-
-	}
-	
-	void Update () {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 100.0f))
+            m_NeighborList.Add(hit.transform.GetComponent<Tile>());
+        if (Physics.Raycast(transform.position, -transform.forward, out hit, 100.0f))
+            m_NeighborList.Add(hit.transform.GetComponent<Tile>());
+        if (Physics.Raycast(transform.position, transform.right, out hit, 100.0f))
+            m_NeighborList.Add(hit.transform.GetComponent<Tile>());
+        if (Physics.Raycast(transform.position, -transform.right, out hit, 100.0f))
+            m_NeighborList.Add(hit.transform.GetComponent<Tile>());
 		
 	}
+    void Update()
+    {
+    }
 
-    public void onLock()
+    public void onLock(Material hitMaterial)
     {
         m_State = STATE.LOCKED;
 
-        transform.GetComponent<Renderer>().material = m_Level.m_HitMaterial;
+        transform.GetComponent<Renderer>().material = hitMaterial;
     }
 }

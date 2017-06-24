@@ -9,10 +9,13 @@ public class WeaponController : MonoBehaviour {
 	private float lastShot = 0.0f;
 	float bulletSpeed;
 
+    public GameObject MuzzleTip;
 
 	private Vector3 lastPosition;
 	private Vector3 moveVelocity;
 	public Bullet bulletPrefab;
+
+
 
 
 	// Use this for initialization
@@ -43,7 +46,7 @@ public class WeaponController : MonoBehaviour {
 
 			Vector3 direction = Quaternion.Euler(35, 0, 0) * transform.forward;
 			Debug.DrawRay(transform.position, direction, Color.blue, 3.0f);
-			if (Physics.Raycast(transform.position, direction, out hit, 100.0f))
+			if (Physics.Raycast(MuzzleTip.transform.position, -transform.up, out hit, 100.0f))
 			{
 				Tile frontTile = hit.collider.gameObject.GetComponent<Tile>();
 
@@ -54,7 +57,7 @@ public class WeaponController : MonoBehaviour {
 				}
 				else
 				{
-					frontTile.onLock();
+					frontTile.onLock(transform.GetComponent<Player>().m_OtherPlayerMaterial);
 				}
 
 
