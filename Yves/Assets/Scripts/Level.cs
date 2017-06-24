@@ -25,7 +25,7 @@ public class Level : MonoBehaviour {
         // Loop and add all tiles
         foreach (Transform child in transform)
         {
-            Debug.Log("IN FOR EACH");
+//            Debug.Log("IN FOR EACH");
             m_TileList.Add(child.GetComponent<Tile>());
         }
 
