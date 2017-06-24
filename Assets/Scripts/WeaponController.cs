@@ -39,6 +39,12 @@ public class WeaponController : MonoBehaviour {
 			b.SetDirection (MuzzleTip.transform.forward);
 			b.SetSource (this.gameObject);
 
+
+			Animator a = this.gameObject.transform.root.GetComponentInChildren<Animator> ();
+			if (a != null)
+			{
+				a.SetTrigger ("Shoot");
+			}
 			// Raycast to find the tile infront of the player
 			RaycastHit hit;
 
