@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootFromDistance: 1
-  bulletPrefab: {fileID: 114683273936913814, guid: fcc7db590d3104343bc136a2ae3bccb7,
+  bulletPrefab: {fileID: 114071494685516232, guid: 45d0243fa87d74099b506729cc29f949,
     type: 2}
   unloadSpeed: 0.2
   MuzzleTip: {fileID: 1236803532582358}
