@@ -525,7 +525,7 @@ MonoBehaviour:
   shootFromDistance: 1
   bulletPrefab: {fileID: 114071494685516232, guid: 45d0243fa87d74099b506729cc29f949,
     type: 2}
-  unloadSpeed: 0.2
+  unloadSpeed: 0.7
   MuzzleTip: {fileID: 1236803532582358}
 --- !u!114 &114735334972094808
 MonoBehaviour:
