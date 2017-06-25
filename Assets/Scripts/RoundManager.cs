@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour {
 
@@ -140,6 +141,11 @@ public class RoundManager : MonoBehaviour {
 					StartCoroutine(EndRound());;
 				}
 			}
+		}
+
+		if (Input.GetButtonDown ("restart"))
+		{
+			SceneManager.LoadScene (0);
 		}
 	}
 

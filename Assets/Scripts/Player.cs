@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
     public int m_PlayerNumber;
 
 	public CinemachineVirtualCamera victoryCam;
+	public List<GameObject> onWin;
 	public CharacterMover cMover;
 
 	// Use this for initialization
@@ -27,6 +28,14 @@ public class Player : MonoBehaviour {
             if (renderer)
                 renderer.material = m_PlayerMaterial;
         }
+
+		if (onWin != null)
+		{
+			foreach (GameObject c in onWin)
+			{
+				c.SetActive (false);
+			}
+		}
 	}
 	
 	// Update is called once per frame
@@ -72,6 +81,14 @@ public class Player : MonoBehaviour {
 		if (cMover != null)
 		{
 			cMover.enabled = (false);
+		}
+
+		if (onWin != null)
+		{
+			foreach (GameObject c in onWin)
+			{
+				c.SetActive (true);
+			}
 		}
 	}
 
