@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
     public Material m_OtherPlayerMaterial;
 
     public GameObject m_Blocker;
+    public int m_PlayerNumber;
 
 	// Use this for initialization
 	void Start () {
