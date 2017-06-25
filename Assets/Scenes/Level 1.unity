@@ -566,7 +566,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 907c3a190ecd818458b4790084172f6b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -661,6 +661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b05f537cefe7049a91468addb71bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Background: {fileID: 551306394}
+  m_Ding: {fileID: 551306397}
 --- !u!82 &551306397
 AudioSource:
   m_ObjectHideFlags: 0
@@ -886,6 +888,7 @@ MonoBehaviour:
   p1LifeZone: {fileID: 674114673}
   p2LifeZone: {fileID: 10089674}
   offset: 15
+  m_SoundManager: {fileID: 551306393}
   healthPrefab: {fileID: 114087100231866450, guid: 6296a57cbdfa74874ba457cfe4936d63,
     type: 2}
 --- !u!114 &1730343166
