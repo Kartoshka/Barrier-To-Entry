@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour {
     public GameObject m_SoundManager;
 
 	public Image healthPrefab;
+	public Image p1HealthPrefab;
+	public Image p2HealthPrefab;
 	private List<GameObject> p1Health;
 	private List<GameObject> p2Health;
 	
@@ -62,7 +64,7 @@ public class UIManager : MonoBehaviour {
 
 		for (int i = 0; i < p1HP; i++)
 		{
-			GameObject p1 = Instantiate (healthPrefab.gameObject);
+			GameObject p1 = Instantiate (p1HealthPrefab.gameObject);
 			RectTransform t1 = p1.GetComponent<RectTransform> ();
 			p1.transform.parent = p1LifeZone.transform;
 			t1.anchoredPosition = p1LifeZone.anchoredPosition;
@@ -73,7 +75,7 @@ public class UIManager : MonoBehaviour {
 		}
 		for (int i = 0; i < p2HP; i++)
 		{
-			GameObject p2 = Instantiate (healthPrefab.gameObject);
+			GameObject p2 = Instantiate (p2HealthPrefab.gameObject);
 			RectTransform t2 = p2.GetComponent<RectTransform> ();
 			p2.transform.parent = p2LifeZone.transform;
 			t2.anchoredPosition = p2LifeZone.anchoredPosition;
