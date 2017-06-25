@@ -14,6 +14,9 @@ public class Player : MonoBehaviour {
     public GameObject m_Blocker;
     public int m_PlayerNumber;
 
+	public CinemachineVirtualCamera victoryCam;
+	public CharacterMover cMover;
+
 	// Use this for initialization
 	void Start () {
 
@@ -43,9 +46,13 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Gamewon(GameObject player){
+		if (this == null)
+		{
+			return;
+		}
 		Animator an = this.transform.root.gameObject.GetComponentInChildren<Animator> ();
 		CharacterController cC = this.transform.root.gameObject.GetComponentInChildren<CharacterController> ();
-		CinemachineVirtualCamera cam = this.transform.root.gameObject.GetComponentInChildren<CinemachineVirtualCamera> ();
+		CinemachineVirtualCamera cam = victoryCam;
 		if (an != null)
 		{
 			an.SetBool ("won", true);
@@ -60,6 +67,11 @@ public class Player : MonoBehaviour {
 		{
 			cam.enabled = true;
 			cam.gameObject.SetActive (true);
+		}
+
+		if (cMover != null)
+		{
+			cMover.enabled = (false);
 		}
 	}
 

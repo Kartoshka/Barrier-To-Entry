@@ -31,7 +31,7 @@ MonoBehaviour:
     m_RotationOrder: 0
   m_CustomBlends:
   - BlendFromCameraName: Game View Camera
-    BlendToCameraName: First Cam
+    BlendToCameraName: Game View Camera
     Blending:
       serializedVersion: 2
       m_Curve:
@@ -50,19 +50,19 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - BlendFromCameraName: First Cam
-    BlendToCameraName: Game View Camera
+  - BlendFromCameraName: Game View Camera
+    BlendToCameraName: Camera
     Blending:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
         time: 0
         value: 0
-        inSlope: 0
-        outSlope: 0
+        inSlope: 2
+        outSlope: 2
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.49166662
+        time: 1
         value: 1
         inSlope: 0
         outSlope: 0

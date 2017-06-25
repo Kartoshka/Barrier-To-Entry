@@ -82,6 +82,10 @@ public class Bullet : MonoBehaviour {
 	}
 
 	void OnPlayerDie(string tag){
-		Destroy (this.gameObject);
+		if (this != null)
+		{
+			Destroy (this.gameObject);
+
+		}
 	}
 }

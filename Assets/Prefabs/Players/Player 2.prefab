@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1486507741999316
 GameObject:
   m_ObjectHideFlags: 1
@@ -412,6 +412,8 @@ MonoBehaviour:
   m_OtherPlayerMaterial: {fileID: 0}
   m_Blocker: {fileID: 1303981899775560, guid: 14a34d45045358340bb3c32b670e5f73, type: 2}
   m_PlayerNumber: 2
+  victoryCam: {fileID: 114261527343623390}
+  cMover: {fileID: 0}
 --- !u!114 &114524081792881512
 MonoBehaviour:
   m_ObjectHideFlags: 1
