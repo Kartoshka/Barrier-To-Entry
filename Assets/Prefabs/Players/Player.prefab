@@ -332,11 +332,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e3476978dbc47fa9ddaf5d1954b0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootFromDistance: 1
+  shootFromDistance: -0.5
   bulletPrefab: {fileID: 114071494685516232, guid: 45d0243fa87d74099b506729cc29f949,
     type: 2}
   unloadSpeed: 0.7
   m_PrevHaloTile: {fileID: 0}
+  m_PrevHalo: {fileID: 0}
+  m_CurHaloTile: {fileID: 0}
   m_HaloPrefab: {fileID: 1100875794566868, guid: 195f883a66bb0b0459c1258fbab2f9b7,
     type: 2}
   MuzzleTip: {fileID: 1236803532582358}
