@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour {
 	public RectTransform p2LifeZone;
 	public float offset;
 
+    public GameObject m_SoundManager;
 
 	public Image healthPrefab;
 	private List<GameObject> p1Health;
@@ -137,6 +138,9 @@ public class UIManager : MonoBehaviour {
 			roundTime = RoundManager.instance.GetRoundStartTimer ();
 			secondTime = Mathf.CeilToInt(roundTime);
 			roundStartTimer.text = ""+secondTime;
+
+            SoundManager soundManager = m_SoundManager.GetComponent<SoundManager>();
+            soundManager.playDing();
 			yield return new WaitForEndOfFrame();
 		} while(secondTime > 0 );
 
