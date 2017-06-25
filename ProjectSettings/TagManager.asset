@@ -8,6 +8,9 @@ TagManager:
   - Player2
   - Player1Blocker
   - Player2Blocker
+  - P2Tag
+  - P1Tag
+  - Sound
   layers:
   - Default
   - TransparentFX

@@ -16,6 +16,8 @@ public class MenuInputManager : MonoBehaviour {
 
     public GameObject m_StartText;
 
+    public GameObject m_SoundManager;
+
     private string m_Platform;
 
 	void Start () {
@@ -63,6 +65,7 @@ public class MenuInputManager : MonoBehaviour {
             a.SetTrigger("Shoot");
         }
 
+        m_SoundManager.GetComponent<SoundManager>().playReady();
         Debug.Log("PLAYER 1 READY");
     }
 
@@ -77,6 +80,7 @@ public class MenuInputManager : MonoBehaviour {
             a.SetTrigger("Shoot");
         }
 
+        m_SoundManager.GetComponent<SoundManager>().playReady();
         Debug.Log("PLAYER 2 READY");
     }
 

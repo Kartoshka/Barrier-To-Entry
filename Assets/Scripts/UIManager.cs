@@ -31,8 +31,10 @@ public class UIManager : MonoBehaviour {
 
 		int player2Health = RoundManager.instance.GetHealth (2);
 
-		//generateHealth (player1Health, player2Health);
-	}
+        m_SoundManager = GameObject.FindGameObjectWithTag("Sound");
+
+        //generateHealth (player1Health, player2Health);
+    }
 
 
 	void generateHealth(int p1HP, int p2HP){
@@ -141,6 +143,7 @@ public class UIManager : MonoBehaviour {
 			secondTime = Mathf.CeilToInt(roundTime);
 			roundStartTimer.text = ""+secondTime;
 
+            m_SoundManager = GameObject.FindGameObjectWithTag("Sound");
             SoundManager soundManager = m_SoundManager.GetComponent<SoundManager>();
             soundManager.playDing();
 			yield return new WaitForEndOfFrame();
