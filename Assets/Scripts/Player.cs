@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+
+	public delegate void DeathAction (GameObject deadPlayer);
+	public static event DeathAction OnPlayerDeath;
+
     public Material m_PlayerMaterial;
     public Material m_OtherPlayerMaterial;
 
@@ -23,6 +27,17 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void BulletHit(Bullet.BulletInfo bInfo)
+	{
+		switch (bInfo.m_bulletType)
+		{
+		case Bullet.BulletType.InstaKill:
+			OnPlayerDeath (this.gameObject);
+			Destroy (this.gameObject);
+			break;
+		}
 	}
 
 }

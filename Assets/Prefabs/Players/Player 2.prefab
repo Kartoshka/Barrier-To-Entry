@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4093007939351556}
   - component: {fileID: 135878766626682164}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4826102492424220}
   - component: {fileID: 33585379074702228}
   - component: {fileID: 23454340116706544}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4723636144418892}
   - component: {fileID: 95071101774694946}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 4828275038425690}
   - component: {fileID: 33456214915896406}
   - component: {fileID: 23578993385785952}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4099143934840942}
   - component: {fileID: 95164583734167328}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Tank01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 114633126819297986}
   - component: {fileID: 114524081792881512}
   - component: {fileID: 114888174396969068}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Logic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 4903785961050708}
   - component: {fileID: 33896755412646524}
   - component: {fileID: 23472408344224344}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4350788913948504}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 33720371919335906}
   - component: {fileID: 23307724820725282}
   - component: {fileID: 114673815142767786}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4246001251936262}
   - component: {fileID: 143148114437816158}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Player 2
   m_TagString: Player2
   m_Icon: {fileID: 0}

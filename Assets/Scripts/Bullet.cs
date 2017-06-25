@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
+	public enum BulletType{
+		InstaKill
+	}
+
+	public struct BulletInfo
+	{
+		public BulletType m_bulletType;
+		public GameObject source;
+	}
+
 	private float birthTime;
 	public float duration;
 	public float speed;
