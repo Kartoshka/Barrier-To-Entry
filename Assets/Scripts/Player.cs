@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class Player : MonoBehaviour {
 
 
@@ -44,9 +44,22 @@ public class Player : MonoBehaviour {
 
 	public void Gamewon(GameObject player){
 		Animator an = this.transform.root.gameObject.GetComponentInChildren<Animator> ();
+		CharacterController cC = this.transform.root.gameObject.GetComponentInChildren<CharacterController> ();
+		CinemachineVirtualCamera cam = this.transform.root.gameObject.GetComponentInChildren<CinemachineVirtualCamera> ();
 		if (an != null)
 		{
 			an.SetBool ("won", true);
+		}
+
+		if (cC != null)
+		{
+			cC.enabled = false;
+		}
+
+		if (cam!=null)
+		{
+			cam.enabled = true;
+			cam.gameObject.SetActive (true);
 		}
 	}
 
