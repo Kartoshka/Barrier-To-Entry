@@ -383,6 +383,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114518786482408972, guid: 4ec5e85ff80b94440b99a721e5960674,
     type: 2}
   unloadSpeed: 0.7
+  m_PrevHaloTile: {fileID: 0}
+  m_HaloPrefab: {fileID: 1920377775131690, guid: ac7cbebd38dfdd840979d63b3051c072,
+    type: 2}
   MuzzleTip: {fileID: 1486507741999316}
 --- !u!114 &114888174396969068
 MonoBehaviour:

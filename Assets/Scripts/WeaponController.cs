@@ -13,6 +13,11 @@ public class WeaponController : MonoBehaviour {
 	public float unloadSpeed = 0.0f;
 	private float lastShot = 0.0f;
 
+    public Tile m_PrevHaloTile;
+    public GameObject m_PrevHalo;
+    public Tile m_CurHaloTile;
+    public GameObject m_HaloPrefab;
+
     public GameObject MuzzleTip;
 
 
@@ -25,6 +30,29 @@ public class WeaponController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+			// Raycast to find the tile infront of the player
+			RaycastHit hit;
+
+            Debug.DrawRay(MuzzleTip.transform.position, -transform.up, Color.white, 3.0f);
+			if (Physics.Raycast(MuzzleTip.transform.position, -transform.up, out hit, 100.0f))
+			{
+				m_CurHaloTile = hit.collider.gameObject.GetComponent<Tile>();
+                if(m_PrevHaloTile != m_CurHaloTile && m_PrevHalo != null)
+                    Destroy(m_PrevHalo.gameObject);
+
+                Player player = GetComponent<Player>();
+				if(m_CurHaloTile == null)
+				{
+					return;
+				}
+				else
+				{
+                    if(m_PrevHaloTile != m_CurHaloTile)
+                        m_PrevHalo = Instantiate(m_HaloPrefab, m_CurHaloTile.transform);
+
+                    m_PrevHaloTile = m_CurHaloTile;
+				}
+			}
 	}
 
 
@@ -45,26 +73,9 @@ public class WeaponController : MonoBehaviour {
 			{
 				a.SetTrigger ("Shoot");
 			}
-			// Raycast to find the tile infront of the player
-			RaycastHit hit;
 
-            Debug.DrawRay(MuzzleTip.transform.position, -transform.up, Color.white, 3.0f);
-			if (Physics.Raycast(MuzzleTip.transform.position, -transform.up, out hit, 100.0f))
-			{
-				Tile frontTile = hit.collider.gameObject.GetComponent<Tile>();
-
-				if(frontTile == null)
-				{
-					return;
-				}
-				else
-				{
-					frontTile.onLock(transform.GetComponent<Player>());
-				}
-
-
-			}
-		}    
+            m_CurHaloTile.onLock(transform.GetComponent<Player>());
+        }    
     }
 
 	void OnDrawGizmos()

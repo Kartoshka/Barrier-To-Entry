@@ -5,6 +5,8 @@ using UnityEngine;
 public class Level : MonoBehaviour {
 
     public List<Tile> m_TileList;
+    public List<GameObject> m_RockList;
+    public int m_RockProb = 20;
 
     public Material m_LevelMaterial;
     public Material m_HitMaterial;
@@ -36,6 +38,15 @@ public class Level : MonoBehaviour {
         {
             m_TileList.Add(child.GetComponent<Tile>());
             GameObject pilon = Instantiate(m_PilonPrefab, child);
+
+            int index = Random.Range(0, m_RockProb);
+            float distanceToSpawn1 = Vector3.Distance(GetComponentInParent<BaseLevel>().m_P1Spawn.transform.position,child.position);
+            float distanceToSpawn2 = Vector3.Distance(GetComponentInParent<BaseLevel>().m_P2Spawn.transform.position, child.position);
+
+            if (index >= 0 && index < m_RockList.Count && distanceToSpawn1 > 5 && distanceToSpawn2 > 5)
+            {
+                GameObject rock = Instantiate(m_RockList[index], child);
+            }
         }
 
         // Loop and set all materials and calculate tile neighbors
