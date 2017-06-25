@@ -147,7 +147,11 @@ public class RoundManager : MonoBehaviour {
 	private IEnumerator EndRound()
 	{
 		m_roundStarted = false;
-		//OnRoundEnd ();
+
+		if (OnRoundEnd != null)
+		{
+			OnRoundEnd ();
+		}
 		//Play Effect
 
 		yield return new WaitForSeconds (roundEndWait);
@@ -212,11 +216,16 @@ public class RoundManager : MonoBehaviour {
 		{
 			if (p1Win)
 			{
-				Debug.Log (m_active_p1);
-				OnRoundWin (m_active_p1);
+				if (OnRoundWin != null)
+				{
+					OnRoundWin (m_active_p1);
+				}
 			} else if (p2Win)
 			{
-				OnRoundWin (m_active_p2);
+				if (OnRoundWin != null)
+				{
+					OnRoundWin (m_active_p2);
+				}
 			}
 			StartCoroutine(EndRound());
 		} else
@@ -238,16 +247,25 @@ public class RoundManager : MonoBehaviour {
 			if (p2Win)
 			{
 				m_roundStarted = false;
-				//OnGameWin (this.gameObject);
+				if (OnGameWin != null)
+				{
+					OnGameWin (this.gameObject);
+				}
 			} else
 			{
 				m_roundStarted = false;
-				OnGameWin (m_active_p1);
+				if (OnGameWin != null)
+				{
+					OnGameWin (m_active_p1);
+				}
 			}
 		} else if (p2Win)
 		{
 			m_roundStarted = false;
-			OnGameWin (m_active_p2);
+			if (OnGameWin != null)
+			{
+				OnGameWin (m_active_p2);
+			}
 		} 
 		return p1Win || p2Win;
 

@@ -36,7 +36,10 @@ public class Player : MonoBehaviour {
 		{
 		case Bullet.BulletType.InstaKill:
 			Destroy (this.gameObject.transform.root.gameObject);
-			OnPlayerDeath (this.gameObject.transform.root.tag);
+			if (OnPlayerDeath != null)
+			{
+				OnPlayerDeath (this.gameObject.transform.root.tag);
+			}
 			break;
 		}
 	}
