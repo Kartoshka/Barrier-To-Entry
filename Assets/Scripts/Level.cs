@@ -11,6 +11,8 @@ public class Level : MonoBehaviour {
     public Material m_PathMaterial;
 
     public GameObject m_PilonPrefab;
+    public GameObject m_DynamicMeshRed;
+    public GameObject m_DynamicMeshBlue;
 
 	// Use this for initialization
 	void Start () {

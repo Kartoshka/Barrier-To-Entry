@@ -8,6 +8,9 @@ public class Tile : MonoBehaviour {
     public STATE m_State;
     public List<Tile> m_NeighborList;
 
+    public GameObject m_DynamicMeshRed;
+    public GameObject m_DynamicMeshBlue;
+
     public enum STATE
     {
         NONE,
@@ -18,6 +21,8 @@ public class Tile : MonoBehaviour {
         
         // Get level instance
         m_Level = transform.parent.GetComponent<Level>();
+        m_DynamicMeshBlue = m_Level.m_DynamicMeshBlue;
+        m_DynamicMeshRed = m_Level.m_DynamicMeshRed;
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, 100.0f))
@@ -28,6 +33,7 @@ public class Tile : MonoBehaviour {
             m_NeighborList.Add(hit.transform.GetComponent<Tile>());
         if (Physics.Raycast(transform.position, -transform.right, out hit, 100.0f))
             m_NeighborList.Add(hit.transform.GetComponent<Tile>());
+
 		
 	}
     void Update()
@@ -36,7 +42,22 @@ public class Tile : MonoBehaviour {
 
     public void onLock(Player player)
     {
-        StartCoroutine(SpawnWall(player));
+        //StartCoroutine(SpawnWall(player));
+
+        string playerTag = player.tag;
+
+        if(player.m_PlayerNumber == 1)
+        {
+            Instantiate(m_DynamicMeshRed, transform);
+        }
+        else if(player.m_PlayerNumber == 2)
+        {
+            Instantiate(m_DynamicMeshBlue, transform);
+        }
+        else
+        {
+            Debug.Log("INVALID PLAYER CASE IN ONLOCK!");
+        }
     }
 
     IEnumerator SpawnWall(Player player)
