@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b4b1d961c66f8e24480f74822a9ae649, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -211,6 +211,26 @@ Prefab:
     - target: {fileID: 4314513766424952, guid: beab2749364a54c75b05c7d5430a2c7b, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066550498828446, guid: beab2749364a54c75b05c7d5430a2c7b,
+        type: 2}
+      propertyPath: directionSpawnWorld.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066550498828446, guid: beab2749364a54c75b05c7d5430a2c7b,
+        type: 2}
+      propertyPath: directionSpawnWorld.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066550498828446, guid: beab2749364a54c75b05c7d5430a2c7b,
+        type: 2}
+      propertyPath: lengthofRound
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066550498828446, guid: beab2749364a54c75b05c7d5430a2c7b,
+        type: 2}
+      propertyPath: player_lives
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: beab2749364a54c75b05c7d5430a2c7b, type: 2}

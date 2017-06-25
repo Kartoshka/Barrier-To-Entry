@@ -58,7 +58,7 @@ MonoBehaviour:
   roundEndWait: 2
   p1_prefab: {fileID: 1103912010783614, guid: 85609969ff50c4faeb888e050536d075, type: 2}
   p2_prefab: {fileID: 1980701511921266, guid: 35e35c131231e47c9a0379edf8fa7651, type: 2}
-  player_lives: 2
+  player_lives: 1
   m_p1_lives: 0
   m_p2_lives: 0
   m_active_p1: {fileID: 0}
