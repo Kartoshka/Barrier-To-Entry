@@ -14,6 +14,8 @@ public class Level : MonoBehaviour {
     public GameObject m_DynamicMeshRed;
     public GameObject m_DynamicMeshBlue;
 
+    public bool m_DebugEnableTileLock = true;
+
 	// Use this for initialization
 	void Start () {
         LoadTileList();

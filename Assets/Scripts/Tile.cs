@@ -42,30 +42,42 @@ public class Tile : MonoBehaviour {
 
     public void onLock(Player player)
     {
-        //StartCoroutine(SpawnWall(player));
+        if (m_State != STATE.LOCKED && m_Level.m_DebugEnableTileLock)
+        {
+            string playerTag = player.tag;
 
-        string playerTag = player.tag;
+            Collider collider = null;
 
-        if(player.m_PlayerNumber == 1)
-        {
-            Instantiate(m_DynamicMeshRed, transform);
+            if (player.m_PlayerNumber == 1)
+            {
+                GameObject dynR = Instantiate(m_DynamicMeshRed, transform);
+                collider = dynR.GetComponent<Collider>();
+                m_State = STATE.LOCKED;
+            }
+            else if (player.m_PlayerNumber == 2)
+            {
+                GameObject dynB = Instantiate(m_DynamicMeshBlue, transform);
+                collider = dynB.GetComponent<Collider>();
+                m_State = STATE.LOCKED;
+            }
+            else
+            {
+                Debug.Log("INVALID PLAYER CASE IN ONLOCK!");
+            }
+
+            if(collider)
+            {
+                collider.enabled = false;
+                StartCoroutine(LateColliderEnable(collider));
+            }
         }
-        else if(player.m_PlayerNumber == 2)
-        {
-            Instantiate(m_DynamicMeshBlue, transform);
-        }
-        else
-        {
-            Debug.Log("INVALID PLAYER CASE IN ONLOCK!");
-        }
+
     }
 
-    IEnumerator SpawnWall(Player player)
+    IEnumerator LateColliderEnable(Collider collider)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
 
-        m_State = STATE.LOCKED;
-        transform.GetComponent<Renderer>().material = player.m_OtherPlayerMaterial;
-        Instantiate(player.m_Blocker, transform.position + new Vector3(0, 1.0f, 0), Quaternion.identity, transform);
+        collider.enabled = true;
     }
 }
