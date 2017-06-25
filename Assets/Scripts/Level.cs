@@ -49,25 +49,6 @@ public class Level : MonoBehaviour {
             }
         }
 
-        // Loop and set all materials and calculate tile neighbors
-        foreach(Tile tile in m_TileList)
-        {
-            tile.GetComponent<Renderer>().material = m_LevelMaterial;
-
-            
-            /*
-            Collider[] neighbors = Physics.OverlapSphere(tile.transform.position, 1.0f);
-            for (int i = 0; i < neighbors.Length; i++)
-            {
-                Tile other = neighbors[i].gameObject.GetComponent<Tile>();
-
-                if (other != null && !tile.m_NeighborList.Contains(other) && other != tile)
-                {
-                    tile.m_NeighborList.Add(other);
-                }
-            }
-            */
-        }
     }
 
     void CreatePath(int pathLength)
