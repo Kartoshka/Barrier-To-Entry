@@ -891,6 +891,10 @@ MonoBehaviour:
   m_SoundManager: {fileID: 551306393}
   healthPrefab: {fileID: 114087100231866450, guid: 6296a57cbdfa74874ba457cfe4936d63,
     type: 2}
+  p1HealthPrefab: {fileID: 114087100231866450, guid: 6296a57cbdfa74874ba457cfe4936d63,
+    type: 2}
+  p2HealthPrefab: {fileID: 114087100231866450, guid: b8ca05ab9b7e14adcb0947da0c4e02b1,
+    type: 2}
 --- !u!114 &1730343166
 MonoBehaviour:
   m_ObjectHideFlags: 0
