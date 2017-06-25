@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour {
 	public RectTransform p2LifeZone;
 	public float offset;
 
+	public GameObject animationCountdown;
+
     public GameObject m_SoundManager;
 
 	public Image healthPrefab;
@@ -116,15 +118,20 @@ public class UIManager : MonoBehaviour {
 	}
 	void OnRoundStart()
 	{
+		roundTimer.gameObject.SetActive (false);
+
 		if (roundStartTimer != null)
 		{
-			roundStartTimer.gameObject.SetActive (true);
+			//roundStartTimer.gameObject.SetActive (true);
 			StartCoroutine (updateRoundTimer ());
+			animationCountdown.SetActive (true);
 		}
 	}
 
 	void OnRoundEnd()
 	{
+		roundTimer.gameObject.SetActive (false);
+
 		if (roundTimer != null)
 		{
 			roundTimer.gameObject.SetActive (false);
@@ -151,7 +158,7 @@ public class UIManager : MonoBehaviour {
 		{
 			roundTimer.gameObject.SetActive (true);
 		}
-
+		animationCountdown.SetActive (false);
 		roundStartTimer.text = "START";
 
 		roundStartTimer.gameObject.AddComponent<FadeTextOverTime> ().fadeDuration = 3.0f;
