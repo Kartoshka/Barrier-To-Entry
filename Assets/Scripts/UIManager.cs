@@ -9,27 +9,108 @@ public class UIManager : MonoBehaviour {
 
 	public RectTransform p1LifeZone;
 	public RectTransform p2LifeZone;
+	public float offset;
+
+
+	public Image healthPrefab;
+	private List<GameObject> p1Health;
+	private List<GameObject> p2Health;
 	
 	// Use this for initialization
 	void Start () {
 		RoundManager.OnRoundStart += OnRoundStart;
-
+		//Player.OnPlayerDeath += OnPlayerDeath;
 		if (roundStartTimer != null)
 		{
 			roundStartTimer.gameObject.SetActive (false);
 		}
+		int player1Health = RoundManager.instance.GetHealth (1);
+
+		int player2Health = RoundManager.instance.GetHealth (2);
+
+		//generateHealth (player1Health, player2Health);
 	}
-	
+
+
+	void generateHealth(int p1HP, int p2HP){
+		int maxLives = RoundManager.instance.player_lives;
+
+		if (p1Health!=null)
+		{
+			foreach (GameObject g in p1Health)
+			{
+				Destroy (g);
+			}
+		}
+
+		if (p2Health!=null)
+		{
+			foreach (GameObject g in p2Health)
+			{
+				Destroy (g);
+			}
+		}
+
+		if (healthPrefab == null)
+		{
+			return;
+		}
+
+		p1Health = new List<GameObject> ();
+		p2Health = new List<GameObject> ();
+
+		for (int i = 0; i < p1HP; i++)
+		{
+			GameObject p1 = Instantiate (healthPrefab.gameObject);
+			RectTransform t1 = p1.GetComponent<RectTransform> ();
+			p1.transform.parent = p1LifeZone.transform;
+			t1.anchoredPosition = p1LifeZone.anchoredPosition;
+
+			t1.anchoredPosition += new Vector2 (i * offset, 0);
+
+			p1Health.Add (p1);
+		}
+		for (int i = 0; i < p2HP; i++)
+		{
+			GameObject p2 = Instantiate (healthPrefab.gameObject);
+			RectTransform t2 = p2.GetComponent<RectTransform> ();
+			p2.transform.parent = p2LifeZone.transform;
+			t2.anchoredPosition = p2LifeZone.anchoredPosition;
+
+			t2.anchoredPosition -= new Vector2 (i * offset, 0);
+
+			p2Health.Add (p2);
+		}
+	}
 	// Update is called once per frame
 	void Update () {
+
+		int player1Health = RoundManager.instance.GetHealth (1);
+
+		int player2Health = RoundManager.instance.GetHealth (2);
+		if (p1Health == null || p2Health == null || player1Health != p1Health.Count || player2Health != p2Health.Count)
+		{
+			generateHealth (player1Health, player2Health);
+		}
 
 		if (roundTimer != null)
 		{
 			roundTimer.text = RoundManager.instance.GetRoundTimeLeft ().ToString ("F");
 		}
+
 		//Update HP
 	}
 
+
+	void OnPlayerDeath(){
+		int player1Health = RoundManager.instance.GetHealth (1);
+
+		int player2Health = RoundManager.instance.GetHealth (2);
+		if (player1Health != p1Health.Count || player2Health != p2Health.Count)
+		{
+			generateHealth (player1Health, player2Health);
+		}
+	}
 	void OnRoundStart()
 	{
 		if (roundStartTimer != null)

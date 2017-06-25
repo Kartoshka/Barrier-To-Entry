@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e3476978dbc47fa9ddaf5d1954b0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootFromDistance: 1
+  shootFromDistance: -0.5
   bulletPrefab: {fileID: 114518786482408972, guid: 4ec5e85ff80b94440b99a721e5960674,
     type: 2}
   unloadSpeed: 0.7
