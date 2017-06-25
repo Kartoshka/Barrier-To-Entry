@@ -887,7 +887,7 @@ MonoBehaviour:
   roundStartTimer: {fileID: 445584983}
   p1LifeZone: {fileID: 674114673}
   p2LifeZone: {fileID: 10089674}
-  offset: 15
+  offset: 35
   m_SoundManager: {fileID: 551306393}
   healthPrefab: {fileID: 114087100231866450, guid: 6296a57cbdfa74874ba457cfe4936d63,
     type: 2}
