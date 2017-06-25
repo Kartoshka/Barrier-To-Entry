@@ -11,6 +11,8 @@ public class Tile : MonoBehaviour {
     public GameObject m_DynamicMeshRed;
     public GameObject m_DynamicMeshBlue;
 
+	public float delayCreation = 0.5f;
+
     public enum STATE
     {
         NONE,
@@ -76,7 +78,7 @@ public class Tile : MonoBehaviour {
 
     IEnumerator LateColliderEnable(Collider collider)
     {
-        yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(delayCreation);
 
         collider.enabled = true;
     }
