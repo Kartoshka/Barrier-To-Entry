@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: -264415343, guid: 7c9da65c57324a64ca6cc78d5ecc736e, type: 3}
   m_Name: TransposerSettingscloseup
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 2, y: 2, z: 0}
+  m_TrackedObjectOffset: {x: 4, y: 4, z: 4}
   m_XDampening: 5.8
   m_YDampening: 6.3
   m_ZDampening: 6.3
