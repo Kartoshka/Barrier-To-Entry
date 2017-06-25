@@ -76,7 +76,7 @@ public class Tile : MonoBehaviour {
 
     IEnumerator LateColliderEnable(Collider collider)
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1f);
 
         collider.enabled = true;
     }

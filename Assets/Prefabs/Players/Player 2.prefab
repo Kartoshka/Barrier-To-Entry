@@ -384,6 +384,8 @@ MonoBehaviour:
     type: 2}
   unloadSpeed: 0.7
   m_PrevHaloTile: {fileID: 0}
+  m_PrevHalo: {fileID: 0}
+  m_CurHaloTile: {fileID: 0}
   m_HaloPrefab: {fileID: 1920377775131690, guid: ac7cbebd38dfdd840979d63b3051c072,
     type: 2}
   MuzzleTip: {fileID: 1486507741999316}
@@ -424,7 +426,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1
   m_Radius: 1.26
-  m_SlopeLimit: 45
+  m_SlopeLimit: 90
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
