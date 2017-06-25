@@ -5,8 +5,10 @@ using UnityEngine;
 public class RoundManager : MonoBehaviour {
 
 
-	public delegate void GameWin(GameObject victor);
-	public static event GameWin OnGameWin;
+	public delegate void RoundEvent(GameObject victor);
+	public static event RoundEvent OnGameWin;
+	public static event RoundEvent OnRoundEnd;
+	public static event RoundEvent OnRoundStart;
 
 	public float m_waitTime;
 	public float beginingOfRoundDelay = 3.0f;
@@ -63,7 +65,7 @@ public class RoundManager : MonoBehaviour {
 
 		m_p1_lives = m_p2_lives = player_lives;
 	}
-
+		
 	void Start () {
 		Player.OnPlayerDeath += OnPlayerDeath;
 		RestartRound ();
@@ -73,8 +75,7 @@ public class RoundManager : MonoBehaviour {
 	{
 		SpawnNewWorld ();
 		DisableCurrentPlayers ();
-		StartCoroutine(StartRound());
-		m_timeLeft = lengthofRound;
+		//StartCoroutine(StartRound());
 	}
 
 
@@ -100,24 +101,24 @@ public class RoundManager : MonoBehaviour {
 	{
 		if (m_active_p1!=null)
 		{
-			Destroy (m_active_p1);
-//			PlayerInputManager p1 = m_active_p1.GetComponentInChildren<PlayerInputManager> ();
-//			if (p1 != null)
-//			{
-//				p1.enabled = false;
-//			}
-//			m_active_p1 = null;
+		//	Destroy (m_active_p1);
+			PlayerInputManager p1 = m_active_p1.GetComponentInChildren<PlayerInputManager> ();
+			if (p1 != null)
+			{
+				p1.enabled = false;
+			}
+			m_active_p1 = null;
 		}
 
 		if (m_active_p2!=null)
 		{
-			Destroy (m_active_p2);
-//			PlayerInputManager p2 = m_active_p2.GetComponentInChildren<PlayerInputManager> ();
-//			if (p2 != null)
-//			{
-//				p2.enabled = false;
-//			}
-//			m_active_p2 = null;
+//			Destroy (m_active_p2);
+			PlayerInputManager p2 = m_active_p2.GetComponentInChildren<PlayerInputManager> ();
+			if (p2 != null)
+			{
+				p2.enabled = false;
+			}
+			m_active_p2 = null;
 		}
 		
 	}
@@ -140,9 +141,7 @@ public class RoundManager : MonoBehaviour {
 		m_roundStarted = false;
 		//Play Effect
 
-		yield return new WaitForSeconds (3.0f);
 		DisableCurrentPlayers ();
-		yield return new WaitForSeconds (1.0f);
 		RestartRound ();
 
 		//Display winner
@@ -151,22 +150,36 @@ public class RoundManager : MonoBehaviour {
 		yield return null;
 	}
 
-    IEnumerator StartRound()
-    {
-       
-		m_waitTime = beginingOfRoundDelay;
-
-		while (m_waitTime > 0)
+	public void RequestNewRound()
+	{
+		if (m_roundStarted)
 		{
-			yield return new WaitForSeconds(0.1f);
-			m_waitTime -= 0.1f;
+			EndRound ();
 		}
 
-		m_active_p1 = Instantiate (p1_prefab, p1_spawn_point.position, p1_spawn_point.rotation);
-		m_active_p2 = Instantiate (p2_prefab, p2_spawn_point.position, p2_spawn_point.rotation);
+		StartCoroutine (StartRound ());
 
-		m_roundStarted = true;
-		m_startTime = Time.time;
+
+	}
+    IEnumerator StartRound()
+    {
+		if (!CheckEndGameCondition ())
+		{
+			m_waitTime = beginingOfRoundDelay;
+
+			while (m_waitTime > 0)
+			{
+				yield return new WaitForSeconds(0.1f);
+				m_waitTime -= 0.1f;
+			}
+
+			m_active_p1 = Instantiate (p1_prefab, p1_spawn_point.position, p1_spawn_point.rotation);
+			m_active_p2 = Instantiate (p2_prefab, p2_spawn_point.position, p2_spawn_point.rotation);
+
+			m_timeLeft = lengthofRound;
+			m_roundStarted = true;
+			m_startTime = Time.time;
+		}
     }
 
 	public void OnPlayerDeath(string tag)
@@ -206,5 +219,28 @@ public class RoundManager : MonoBehaviour {
 		}
 		return true;
 
+	}
+
+
+	public float GetRoundTimeLeft()
+	{
+		return m_timeLeft;
+	}
+	public float GetRoundStartTimer()
+	{
+		return m_waitTime;
+	}
+
+	public int GetHealth(int playerNum){
+		if (playerNum == 1)
+		{
+			return m_p1_lives;
+		} else if (playerNum == 2)
+		{
+			return m_p2_lives;
+		} else
+		{
+			return -1;
+		}
 	}
 }
