@@ -5,8 +5,10 @@ using UnityEngine;
 public class RoundManager : MonoBehaviour {
 
 
-	public delegate void RoundEvent(GameObject victor);
-	public static event RoundEvent OnGameWin;
+	public delegate void WinEvent(GameObject victor);
+	public delegate void RoundEvent();
+	public static event WinEvent OnGameWin;
+	public static event WinEvent OnRoundWin;
 	public static event RoundEvent OnRoundEnd;
 	public static event RoundEvent OnRoundStart;
 
@@ -15,6 +17,7 @@ public class RoundManager : MonoBehaviour {
 	public float m_startTime;
 	private float m_timeLeft; 
 	public float lengthofRound = 30.0f;
+	public float roundEndWait = 2.0f;
 
     public GameObject p1_prefab;
     public GameObject p2_prefab;
@@ -106,8 +109,7 @@ public class RoundManager : MonoBehaviour {
 			if (p1 != null)
 			{
 				p1.enabled = false;
-			}
-			m_active_p1 = null;
+			}		
 		}
 
 		if (m_active_p2!=null)
@@ -118,7 +120,6 @@ public class RoundManager : MonoBehaviour {
 			{
 				p2.enabled = false;
 			}
-			m_active_p2 = null;
 		}
 		
 	}
@@ -130,7 +131,14 @@ public class RoundManager : MonoBehaviour {
 			if (m_timeLeft < 0)
 			{
 				m_timeLeft = 0;
-				m_roundStarted = false;
+				m_p1_lives--;
+				m_p2_lives--;
+				DisableCurrentPlayers ();
+
+				if (!CheckEndGameCondition ())
+				{
+					StartCoroutine(EndRound());;
+				}
 			}
 		}
 	}
@@ -139,14 +147,15 @@ public class RoundManager : MonoBehaviour {
 	private IEnumerator EndRound()
 	{
 		m_roundStarted = false;
+		//OnRoundEnd ();
 		//Play Effect
 
+		yield return new WaitForSeconds (roundEndWait);
 		DisableCurrentPlayers ();
 		RestartRound ();
 
 		//Display winner
 		//Wait for input?
-
 		yield return null;
 	}
 
@@ -154,10 +163,12 @@ public class RoundManager : MonoBehaviour {
 	{
 		if (m_roundStarted)
 		{
-			EndRound ();
+			StartCoroutine(EndRound());;
 		}
 
+		m_waitTime = beginingOfRoundDelay;
 		StartCoroutine (StartRound ());
+		OnRoundStart ();
 
 
 	}
@@ -184,21 +195,33 @@ public class RoundManager : MonoBehaviour {
 
 	public void OnPlayerDeath(string tag)
 	{
+		bool p1Win = false;
+		bool p2Win = false;
 		if (tag == m_active_p1.tag)
 		{
+			p2Win = true;
 			m_p1_lives--;
 		} else if (tag == m_active_p2.tag)
 		{
+			p1Win = true;
+
 			m_p2_lives--;
 		}
 
 		if (!CheckEndGameCondition ())
 		{
-			StartCoroutine(EndRound ());
+			if (p1Win)
+			{
+				Debug.Log (m_active_p1);
+				OnRoundWin (m_active_p1);
+			} else if (p2Win)
+			{
+				OnRoundWin (m_active_p2);
+			}
+			StartCoroutine(EndRound());
 		} else
 		{
 			//End Game
-
 			m_roundStarted = false;
 			m_gameEnded = true;
 		}
@@ -207,17 +230,26 @@ public class RoundManager : MonoBehaviour {
 
 	private bool CheckEndGameCondition()
 	{
-		if (m_p1_lives <= 0)
+		bool p1Win=m_p1_lives <= 0;
+		bool p2Win =m_p2_lives <= 0 ;
+
+		if (p1Win)
 		{
-			//OnGameWin (m_active_p2);
-		} else if (m_p2_lives <= 0)
+			if (p2Win)
+			{
+				m_roundStarted = false;
+				//OnGameWin (this.gameObject);
+			} else
+			{
+				m_roundStarted = false;
+				OnGameWin (m_active_p1);
+			}
+		} else if (p2Win)
 		{
-			//OnGameWin (m_active_p1);
-		} else
-		{
-			return false;
-		}
-		return true;
+			m_roundStarted = false;
+			OnGameWin (m_active_p2);
+		} 
+		return p1Win || p2Win;
 
 	}
 

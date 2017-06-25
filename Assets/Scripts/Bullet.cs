@@ -25,6 +25,7 @@ public class Bullet : MonoBehaviour {
 	private GameObject source;
 	// Use this for initialization
 	void Start () {
+		Player.OnPlayerDeath += OnPlayerDie;
 		birthTime = Time.time;	
 	}
 	
@@ -78,5 +79,9 @@ public class Bullet : MonoBehaviour {
     protected virtual void OnHitPlayerEffect(GameObject opponent)
 	{
 		//Destroy (opponent.gameObject);
+	}
+
+	void OnPlayerDie(string tag){
+		Destroy (this.gameObject);
 	}
 }
