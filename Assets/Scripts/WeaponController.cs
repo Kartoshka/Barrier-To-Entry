@@ -48,7 +48,7 @@ public class WeaponController : MonoBehaviour {
 			// Raycast to find the tile infront of the player
 			RaycastHit hit;
 
-			Vector3 direction = Quaternion.Euler(35, 0, 0) * transform.forward;
+            Debug.DrawRay(MuzzleTip.transform.position, -transform.up, Color.white, 3.0f);
 			if (Physics.Raycast(MuzzleTip.transform.position, -transform.up, out hit, 100.0f))
 			{
 				Tile frontTile = hit.collider.gameObject.GetComponent<Tile>();

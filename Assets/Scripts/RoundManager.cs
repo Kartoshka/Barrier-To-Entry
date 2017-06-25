@@ -82,6 +82,8 @@ public class RoundManager : MonoBehaviour {
 	{
 
 		GameObject temp = Instantiate (levelPrefab, directionSpawnWorld * distanceBetweenLevels * level++, Quaternion.identity);
+        BaseLevel baseLevel = temp.GetComponent<BaseLevel>();
+
 		if (m_loadedLevel != null)
 		{
 			GameObject oldLevel = m_loadedLevel;
@@ -89,17 +91,8 @@ public class RoundManager : MonoBehaviour {
 		}
 		m_loadedLevel = temp;
 
-		if (p1_spawn_point != null)
-		{
-			Destroy (p1_spawn_point);
-		}
-		p1_spawn_point = GameObject.FindGameObjectWithTag ("P1Tag").transform;
-
-		if (p2_spawn_point != null)
-		{
-			Destroy (p2_spawn_point);
-		}
-		p2_spawn_point = GameObject.FindGameObjectWithTag ("P2Tag").transform;
+		p1_spawn_point = baseLevel.m_P1Spawn.transform;
+		p2_spawn_point = baseLevel.m_P2Spawn.transform;
 
 	}
 
