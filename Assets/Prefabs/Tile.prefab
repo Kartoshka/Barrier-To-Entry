@@ -108,3 +108,6 @@ MonoBehaviour:
   m_Level: {fileID: 0}
   m_State: 0
   m_NeighborList: []
+  m_DynamicMeshRed: {fileID: 0}
+  m_DynamicMeshBlue: {fileID: 0}
+  delayCreation: 1
