@@ -16,7 +16,8 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
+		RoundManager.OnGameWin += Gamewon;
         foreach(Transform child in transform)
         {
             Renderer renderer = child.GetComponent<Renderer>();
@@ -38,6 +39,14 @@ public class Player : MonoBehaviour {
 			Destroy (this.gameObject.transform.root.gameObject);
 			OnPlayerDeath (this.gameObject.transform.root.tag);
 			break;
+		}
+	}
+
+	public void Gamewon(GameObject player){
+		Animator an = this.transform.root.gameObject.GetComponentInChildren<Animator> ();
+		if (an != null)
+		{
+			an.SetBool ("won", true);
 		}
 	}
 

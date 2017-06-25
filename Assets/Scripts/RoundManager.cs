@@ -239,7 +239,7 @@ public class RoundManager : MonoBehaviour {
 
 	private bool CheckEndGameCondition()
 	{
-		bool p1Win=m_p1_lives <= 0;
+		bool p1Win =m_p1_lives <= 0;
 		bool p2Win =m_p2_lives <= 0 ;
 
 		if (p1Win)
