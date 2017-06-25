@@ -55,12 +55,18 @@ public class CharacterMover : MonoBehaviour {
 			//this.transform.rotation = Quaternion.LookRotation (currentVelocity, new Vector3(0,0,-1));
 		}
 			
-		if (rotationObj != null)
+		Vector3 dir = new Vector3 (m_look_h, 0, m_look_v);
+		if (dir != Vector3.zero)
 		{
-			rotationObj.transform.rotation = Quaternion.Lerp (rotationObj.transform.rotation, Quaternion.LookRotation (new Vector3 (m_look_h, 0, m_look_v), new Vector3 (0, 1, 0)), rotationSpeed);
-		} else
-		{
-			charCont.gameObject.transform.rotation = Quaternion.Lerp(charCont.gameObject.transform.rotation, Quaternion.LookRotation (new Vector3 (m_look_h, 0, m_look_v),new Vector3(0,1,0)) , rotationSpeed);
+			if (rotationObj != null)
+			{
+			
+				rotationObj.transform.rotation = Quaternion.Lerp (rotationObj.transform.rotation, Quaternion.LookRotation (dir, new Vector3 (0, 1, 0)), rotationSpeed);
+			
+			} else
+			{
+				charCont.gameObject.transform.rotation = Quaternion.Lerp (charCont.gameObject.transform.rotation, Quaternion.LookRotation (new Vector3 (m_look_h, 0, m_look_v), new Vector3 (0, 1, 0)), rotationSpeed);
+			}
 		}
 	}
 }

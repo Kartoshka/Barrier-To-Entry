@@ -20,11 +20,11 @@ public class RoundManager : MonoBehaviour {
 	[Range(1,5)]
 	public int player_lives;
 
-	private int m_p1_lives;
-	private int m_p2_lives;
+	public int m_p1_lives;
+	public int m_p2_lives;
 
-	private GameObject m_active_p1;
-	private GameObject m_active_p2;
+	public GameObject m_active_p1;
+	public GameObject m_active_p2;
 
 	public Transform p1_spawn_point;
 	public Transform p2_spawn_point;
@@ -51,10 +51,12 @@ public class RoundManager : MonoBehaviour {
 
 		//Sets this to not be destroyed when reloading scene
 		DontDestroyOnLoad(gameObject);
-		Player.OnPlayerDeath += OnPlayerDeath;
+
+		m_p1_lives = m_p2_lives = player_lives;
 	}
 
 	void Start () {
+		Player.OnPlayerDeath += OnPlayerDeath;
 		RestartRound ();
 	}
 		
@@ -88,6 +90,7 @@ public class RoundManager : MonoBehaviour {
 //			}
 //			m_active_p2 = null;
 		}
+		
 	}
 
 	void Update () {
@@ -103,14 +106,20 @@ public class RoundManager : MonoBehaviour {
 	}
 
 
-	private void EndRound()
+	private IEnumerator EndRound()
 	{
 		m_roundStarted = false;
+		//Play Effect
+
+		yield return new WaitForSeconds (3.0f);
 		DisableCurrentPlayers ();
+		yield return new WaitForSeconds (1.0f);
 		RestartRound ();
 
 		//Display winner
 		//Wait for input?
+
+		yield return null;
 	}
 
     IEnumerator StartRound()
@@ -131,19 +140,25 @@ public class RoundManager : MonoBehaviour {
 		m_startTime = Time.time;
     }
 
-	public void OnPlayerDeath(GameObject player)
+	public void OnPlayerDeath(string tag)
 	{
-		if (player == m_active_p1)
+		if (tag == m_active_p1.tag)
 		{
 			m_p1_lives--;
-		} else if (player == m_active_p2)
+		} else if (tag == m_active_p2.tag)
 		{
 			m_p2_lives--;
 		}
 
 		if (!CheckEndGameCondition ())
 		{
-			EndRound ();
+			StartCoroutine(EndRound ());
+		} else
+		{
+			//End Game
+
+			m_roundStarted = false;
+			m_gameEnded = true;
 		}
 
 	}
@@ -152,18 +167,15 @@ public class RoundManager : MonoBehaviour {
 	{
 		if (m_p1_lives <= 0)
 		{
-			OnGameWin (m_active_p2);
-
+			//OnGameWin (m_active_p2);
 		} else if (m_p2_lives <= 0)
 		{
-			OnGameWin (m_active_p1);
+			//OnGameWin (m_active_p1);
 		} else
 		{
 			return false;
 		}
-
-		m_roundStarted = false;
-		m_gameEnded = true;
 		return true;
+
 	}
 }

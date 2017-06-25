@@ -18,6 +18,7 @@ public class Bullet : MonoBehaviour {
 	public float duration;
 	public float speed;
 
+	public BulletType bullet_type;
 	private Vector3 m_initialVelocity;
 	private Vector3 direction;
 
@@ -57,7 +58,15 @@ public class Bullet : MonoBehaviour {
 
 		if (tag == "Player1" || tag == "Player2")
 		{
-			OnHitPlayerEffect (other.gameObject);
+			Player p = other.gameObject.transform.root.gameObject.GetComponentInChildren<Player> ();
+			BulletInfo bInfo;
+			bInfo.m_bulletType = this.bullet_type;
+			bInfo.source = this.source;
+			if (p != null)
+			{
+				p.BulletHit (bInfo);
+			}
+			//OnHitPlayerEffect (other.gameObject);
 		}
 
         if(tag == source.GetComponent<Player>().m_Blocker.tag)
@@ -68,6 +77,6 @@ public class Bullet : MonoBehaviour {
 
     protected virtual void OnHitPlayerEffect(GameObject opponent)
 	{
-		Destroy (opponent.gameObject);
+		//Destroy (opponent.gameObject);
 	}
 }

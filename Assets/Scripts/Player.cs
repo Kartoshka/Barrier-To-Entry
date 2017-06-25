@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
 
-	public delegate void DeathAction (GameObject deadPlayer);
+	public delegate void DeathAction (string deadPlayer);
 	public static event DeathAction OnPlayerDeath;
 
     public Material m_PlayerMaterial;
@@ -35,8 +35,8 @@ public class Player : MonoBehaviour {
 		switch (bInfo.m_bulletType)
 		{
 		case Bullet.BulletType.InstaKill:
-			OnPlayerDeath (this.gameObject);
-			Destroy (this.gameObject);
+			Destroy (this.gameObject.transform.root.gameObject);
+			OnPlayerDeath (this.gameObject.transform.root.tag);
 			break;
 		}
 	}

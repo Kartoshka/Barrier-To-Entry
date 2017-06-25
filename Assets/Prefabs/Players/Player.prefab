@@ -256,7 +256,7 @@ Transform:
   m_GameObject: {fileID: 1103912010783614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.24, y: 0.667, z: 3.5397894}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4668084978010306}
   - {fileID: 4255200520942192}
@@ -553,7 +553,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlayerMaterial: {fileID: 0}
   m_OtherPlayerMaterial: {fileID: 0}
-  m_Blocker: {fileID: 0}
+  m_Blocker: {fileID: 1231612794923238, guid: 96ee6ce974ebd2041bb1eafe5c61b1d4, type: 2}
+  m_PlayerNumber: 1
 --- !u!114 &114894759817289960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -608,10 +609,10 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.08
-  m_Radius: 1.63
+  m_Height: 1
+  m_Radius: 1.26
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.94, z: 0.44}
+  m_Center: {x: 0, y: 0.94, z: 0.05}
