@@ -32,6 +32,15 @@ public class RoundManager : MonoBehaviour {
 	private bool m_roundStarted = false;
 	private bool m_gameEnded = false;
 
+
+	//Level spawning
+	int level =0;
+	public float distanceBetweenLevels = 100.0f;
+	public Vector3 directionSpawnWorld;
+	public float delay;
+	public GameObject levelPrefab;
+	private GameObject m_loadedLevel;
+
 	public static RoundManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
 
 	//Awake is always called before any Start functions
@@ -62,9 +71,36 @@ public class RoundManager : MonoBehaviour {
 		
 	void RestartRound()
 	{
+		SpawnNewWorld ();
 		DisableCurrentPlayers ();
 		StartCoroutine(StartRound());
 		m_timeLeft = lengthofRound;
+	}
+
+
+	void SpawnNewWorld()
+	{
+
+		GameObject temp = Instantiate (levelPrefab, directionSpawnWorld * distanceBetweenLevels * level++, Quaternion.identity);
+		if (m_loadedLevel != null)
+		{
+			GameObject oldLevel = m_loadedLevel;
+			Destroy (oldLevel, delay);
+		}
+		m_loadedLevel = temp;
+
+		if (p1_spawn_point != null)
+		{
+			Destroy (p1_spawn_point);
+		}
+		p1_spawn_point = GameObject.FindGameObjectWithTag ("P1Tag").transform;
+
+		if (p2_spawn_point != null)
+		{
+			Destroy (p2_spawn_point);
+		}
+		p2_spawn_point = GameObject.FindGameObjectWithTag ("P2Tag").transform;
+
 	}
 
 	void DisableCurrentPlayers()
