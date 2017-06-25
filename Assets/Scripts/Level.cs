@@ -40,7 +40,10 @@ public class Level : MonoBehaviour {
             GameObject pilon = Instantiate(m_PilonPrefab, child);
 
             int index = Random.Range(0, m_RockProb);
-            if(index >= 0 && index < m_RockList.Count)
+            float distanceToSpawn1 = Vector3.Distance(GetComponentInParent<BaseLevel>().m_P1Spawn.transform.position,child.position);
+            float distanceToSpawn2 = Vector3.Distance(GetComponentInParent<BaseLevel>().m_P2Spawn.transform.position, child.position);
+
+            if (index >= 0 && index < m_RockList.Count && distanceToSpawn1 > 5 && distanceToSpawn2 > 5)
             {
                 GameObject rock = Instantiate(m_RockList[index], child);
             }

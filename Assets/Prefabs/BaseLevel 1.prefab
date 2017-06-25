@@ -39037,7 +39037,7 @@ MonoBehaviour:
   - {fileID: 1845467275071366, guid: 88c93b812d122264b998d53fa8c96f3f, type: 2}
   - {fileID: 1976934706474012, guid: 3215c787cf3c348459b9111fb620a104, type: 2}
   - {fileID: 1757186909614502, guid: 9eb963ced612c3e40a615463ca7a926f, type: 2}
-  m_RockProb: 150
+  m_RockProb: 250
   m_LevelMaterial: {fileID: 2100000, guid: 47faf329ed9fa004d883a2096b17b5c0, type: 2}
   m_HitMaterial: {fileID: 0}
   m_PathMaterial: {fileID: 0}
