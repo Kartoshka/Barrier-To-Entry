@@ -151,8 +151,13 @@ public class UIManager : MonoBehaviour {
 			roundStartTimer.text = ""+secondTime;
 
             m_SoundManager = GameObject.FindGameObjectWithTag("Sound");
-            SoundManager soundManager = m_SoundManager.GetComponent<SoundManager>();
-            soundManager.playDing();
+
+            if(m_SoundManager)
+            {
+                SoundManager soundManager = m_SoundManager.GetComponent<SoundManager>();
+                soundManager.playDing();
+            }
+
 			yield return new WaitForEndOfFrame();
 		} while(secondTime > 0 );
 
