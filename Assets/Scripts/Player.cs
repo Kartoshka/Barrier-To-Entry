@@ -26,8 +26,8 @@ public class Player : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
 	}
 
 	public void BulletHit(Bullet.BulletInfo bInfo)
@@ -36,10 +36,7 @@ public class Player : MonoBehaviour {
 		{
 		case Bullet.BulletType.InstaKill:
 			Destroy (this.gameObject.transform.root.gameObject);
-			if (OnPlayerDeath != null)
-			{
-				OnPlayerDeath (this.gameObject.transform.root.tag);
-			}
+			OnPlayerDeath (this.gameObject.transform.root.tag);
 			break;
 		}
 	}
