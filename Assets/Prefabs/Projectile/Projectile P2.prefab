@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
-  speed: 35
+  speed: 20
   bullet_type: 0
 --- !u!136 &136419540844126002
 CapsuleCollider:

@@ -982,7 +982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charCont: {fileID: 143148114437816158}
   rotationObj: {fileID: 1896156404259454}
-  moveSpeed: 10
+  moveSpeed: 8
   accelerationRatio: 1
   rotationSpeed: 0.5
 --- !u!114 &114633126819297986

@@ -65,7 +65,7 @@ public class RoundManager : MonoBehaviour {
 			Destroy(this.gameObject);    
 
 		//Sets this to not be destroyed when reloading scene
-		DontDestroyOnLoad(gameObject);
+		//DontDestroyOnLoad(gameObject);
 
 		m_p1_lives = m_p2_lives = player_lives;
 	}

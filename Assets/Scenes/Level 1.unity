@@ -212,30 +212,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114066550498828446, guid: beab2749364a54c75b05c7d5430a2c7b,
-        type: 2}
-      propertyPath: directionSpawnWorld.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114066550498828446, guid: beab2749364a54c75b05c7d5430a2c7b,
-        type: 2}
-      propertyPath: directionSpawnWorld.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114066550498828446, guid: beab2749364a54c75b05c7d5430a2c7b,
-        type: 2}
-      propertyPath: lengthofRound
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114066550498828446, guid: beab2749364a54c75b05c7d5430a2c7b,
-        type: 2}
-      propertyPath: player_lives
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1733102413492172, guid: beab2749364a54c75b05c7d5430a2c7b, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: beab2749364a54c75b05c7d5430a2c7b, type: 2}
   m_IsPrefabParent: 0
